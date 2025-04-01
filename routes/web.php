@@ -13,3 +13,7 @@ Route::get('/dashboard', function () {
 Route::get('/tables', function () {
     return view('admin.tables');
 });
+
+Route::get('/login', function () {
+    return view('auth.login');
+});
