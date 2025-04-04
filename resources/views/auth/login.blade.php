@@ -19,19 +19,15 @@
 -->
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <link rel="shortcut icon" href="../../assets/img/favicon.ico" />
-    <link
-      rel="apple-touch-icon"
-      sizes="76x76"
-      href="../../assets/img/apple-icon.png"
-    />
-    <link
-      rel="stylesheet"
-      href="../../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css"
+    <link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/apple-icon.png" />
+    <link rel="stylesheet"
+        href="../../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css"
     />
     <link rel="stylesheet" href="../../assets/styles/tailwind.css" />
     <title>Login | Notus Tailwind JS by Creative Tim</title>
@@ -250,14 +246,15 @@
                   <div class="text-blueGray-400 text-center mb-3 font-bold">
                     <small>Or sign in with credentials</small>
                   </div>
-                  <form>
+                  <form action='/authenticate' method="post">
+                    @csrf
                     <div class="relative w-full mb-3">
                       <label
                         class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                         for="grid-password"
                         >Email</label
                       ><input
-                        type="email"
+                        type="email" id="email" name="email"
                         class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         placeholder="Email"
                       />
@@ -268,7 +265,7 @@
                         for="grid-password"
                         >Password</label
                       ><input
-                        type="password"
+                        type="password" id="password" name="password"
                         class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         placeholder="Password"
                       />
@@ -288,7 +285,7 @@
                     <div class="text-center mt-6">
                       <button
                         class="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
-                        type="button"
+                        type="submit"
                       >
                         Sign In
                       </button>
@@ -311,89 +308,81 @@
             </div>
           </div>
         </div>
-        <footer class="absolute w-full bottom-0 bg-blueGray-800 pb-6">
-          <div class="container mx-auto px-4">
-            <hr class="mb-6 border-b-1 border-blueGray-600" />
-            <div
-              class="flex flex-wrap items-center md:justify-between justify-center"
-            >
-              <div class="w-full md:w-4/12 px-4">
-                <div
-                  class="text-sm text-white font-semibold py-1 text-center md:text-left"
-                >
-                  Copyright © <span id="get-current-year"></span>
-                  <a
-                    href="https://www.creative-tim.com?ref=njs-login"
-                    class="text-white hover:text-blueGray-300 text-sm font-semibold py-1"
-                    >Creative Tim</a
-                  >
+        @if (count($errors) > 0)
+                  <div class = "text-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li> @endforeach
+                    </ul>
+                  </div>
+                 @endif
+        <footer class="absolute
+        w-full bottom-0 bg-blueGray-800 pb-6">
+    <div class="container mx-auto px-4">
+        <hr class="mb-6 border-b-1 border-blueGray-600" />
+        <div class="flex flex-wrap items-center md:justify-between justify-center">
+            <div class="w-full md:w-4/12 px-4">
+                <div class="text-sm text-white font-semibold py-1 text-center md:text-left">
+                    Copyright © <span id="get-current-year"></span>
+                    <a href="https://www.creative-tim.com?ref=njs-login"
+                        class="text-white hover:text-blueGray-300 text-sm font-semibold py-1">Creative Tim</a>
                 </div>
-              </div>
-              <div class="w-full md:w-8/12 px-4">
-                <ul
-                  class="flex flex-wrap list-none md:justify-end justify-center"
-                >
-                  <li>
-                    <a
-                      href="https://www.creative-tim.com?ref=njs-login"
-                      class="text-white hover:text-blueGray-300 text-sm font-semibold block py-1 px-3"
-                      >Creative Tim</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.creative-tim.com/presentation?ref=njs-login"
-                      class="text-white hover:text-blueGray-300 text-sm font-semibold block py-1 px-3"
-                      >About Us</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="http://blog.creative-tim.com?ref=njs-login"
-                      class="text-white hover:text-blueGray-300 text-sm font-semibold block py-1 px-3"
-                      >Blog</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="https://github.com/creativetimofficial/notus-js/blob/main/LICENSE.md?ref=njs-login"
-                      class="text-white hover:text-blueGray-300 text-sm font-semibold block py-1 px-3"
-                      >MIT License</a
-                    >
-                  </li>
-                </ul>
-              </div>
             </div>
-          </div>
-        </footer>
-      </section>
+            <div class="w-full md:w-8/12 px-4">
+                <ul class="flex flex-wrap list-none md:justify-end justify-center">
+                    <li>
+                        <a href="https://www.creative-tim.com?ref=njs-login"
+                            class="text-white hover:text-blueGray-300 text-sm font-semibold block py-1 px-3">Creative
+                            Tim</a>
+                    </li>
+                    <li>
+                        <a href="https://www.creative-tim.com/presentation?ref=njs-login"
+                            class="text-white hover:text-blueGray-300 text-sm font-semibold block py-1 px-3">About
+                            Us</a>
+                    </li>
+                    <li>
+                        <a href="http://blog.creative-tim.com?ref=njs-login"
+                            class="text-white hover:text-blueGray-300 text-sm font-semibold block py-1 px-3">Blog</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/creativetimofficial/notus-js/blob/main/LICENSE.md?ref=njs-login"
+                            class="text-white hover:text-blueGray-300 text-sm font-semibold block py-1 px-3">MIT
+                            License</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </footer>
+    </section>
     </main>
-  </body>
-  <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
-  <script>
-    /* Make dynamic date appear */
-    (function () {
-      if (document.getElementById("get-current-year")) {
-        document.getElementById("get-current-year").innerHTML =
-          new Date().getFullYear();
-      }
-    })();
-    /* Function for opning navbar on mobile */
-    function toggleNavbar(collapseID) {
-      document.getElementById(collapseID).classList.toggle("hidden");
-      document.getElementById(collapseID).classList.toggle("block");
-    }
-    /* Function for dropdowns */
-    function openDropdown(event, dropdownID) {
-      let element = event.target;
-      while (element.nodeName !== "A") {
-        element = element.parentNode;
-      }
-      Popper.createPopper(element, document.getElementById(dropdownID), {
-        placement: "bottom-start"
-      });
-      document.getElementById(dropdownID).classList.toggle("hidden");
-      document.getElementById(dropdownID).classList.toggle("block");
-    }
-  </script>
+    </body>
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
+    <script>
+        /* Make dynamic date appear */
+        (function() {
+            if (document.getElementById("get-current-year")) {
+                document.getElementById("get-current-year").innerHTML =
+                    new Date().getFullYear();
+            }
+        })();
+        /* Function for opning navbar on mobile */
+        function toggleNavbar(collapseID) {
+            document.getElementById(collapseID).classList.toggle("hidden");
+            document.getElementById(collapseID).classList.toggle("block");
+        }
+        /* Function for dropdowns */
+        function openDropdown(event, dropdownID) {
+            let element = event.target;
+            while (element.nodeName !== "A") {
+                element = element.parentNode;
+            }
+            Popper.createPopper(element, document.getElementById(dropdownID), {
+                placement: "bottom-start"
+            });
+            document.getElementById(dropdownID).classList.toggle("hidden");
+            document.getElementById(dropdownID).classList.toggle("block");
+        }
+    </script>
+
 </html>
