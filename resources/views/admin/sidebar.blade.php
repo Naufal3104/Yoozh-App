@@ -8,7 +8,7 @@ class="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:fl
         <i class="fas fa-bars"></i>
     </button>
     <a class="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
-        href="../../index.html">
+        href="">
         Yoozh Dashboard
     </a>
     <ul class="md:hidden items-center flex flex-wrap list-none">
@@ -92,18 +92,26 @@ class="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:fl
 
         <ul class="md:flex-col md:min-w-full flex flex-col list-none">
             <li class="items-center">
-                <a href="./dashboard.html"
-                    class="text-xs uppercase py-3 font-bold block text-blueGray-700 hover:text-blueGray-500">
-                    <i class="fas fa-tv mr-2 text-sm text-blueGray-300"></i>
+                <a href="/dashboard"
+                    class=" @if(Request::is('dashboard')) text-pink-500 hover:text-pink-600 @else text-blueGray-700 hover:text-blueGray-500 @endif text-xs uppercase py-3 font-bold block ">
+                    <i class="fas fa-tv mr-2 text-sm opacity-75"></i>
                     Dashboard
                 </a>
             </li>
 
             <li class="items-center">
-                <a href="./settings.html"
-                    class="text-xs uppercase py-3 font-bold block text-pink-500 hover:text-pink-600">
+                <a href="/category"
+                    class=" @if(Request::is('category')) text-pink-500 hover:text-pink-600 @else text-blueGray-700 hover:text-blueGray-500 @endif text-xs uppercase py-3 font-bold block ">
                     <i class="fas fa-tools mr-2 text-sm opacity-75"></i>
-                    Settings
+                    Category
+                </a>
+            </li>
+
+            <li class="items-center">
+                <a href="/products"
+                    class=" @if(Request::is('products')) text-pink-500 hover:text-pink-600 @else text-blueGray-700 hover:text-blueGray-500 @endif text-xs uppercase py-3 font-bold block ">
+                    <i class="fas fa-tools mr-2 text-sm opacity-75"></i>
+                    Products
                 </a>
             </li>
         </ul>

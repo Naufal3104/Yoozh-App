@@ -2,7 +2,7 @@
                 class="absolute top-0 left-0 w-full z-10 bg-transparent md:flex-row md:flex-nowrap md:justify-start flex items-center p-4">
                 <div class="w-full mx-autp items-center flex justify-between md:flex-nowrap flex-wrap md:px-10 px-4">
                     <a class="text-white text-sm uppercase hidden lg:inline-block font-semibold"
-                        href="/dashboard">@yield('content-title')s</a>
+                        href="">@yield('content-title')</a>
                     <form class="md:flex hidden flex-row flex-wrap items-center lg:ml-auto mr-3">
                         <div class="relative flex w-full flex-wrap items-stretch">
                             <span
@@ -31,9 +31,12 @@
                                 class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">Something
                                 else here</a>
                             <div class="h-0 my-2 border border-solid border-blueGray-100"></div>
-                            <a href="#pablo"
-                                class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">Seprated
-                                link</a>
+                            <form action="/logout" method="POST">
+                                @csrf
+                                <input
+                                    class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-white text-blueGray-700"
+                                    type="submit" value="Logout">
+                            </form>
                         </div>
                     </ul>
                 </div>
