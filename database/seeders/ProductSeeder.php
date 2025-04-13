@@ -7,23 +7,19 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-use App\Models\Category;
 
-class CategorySeeder extends Seeder
+class ProductSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        // DB::table('categories')->truncate();
-        DB::table('categories')->insert([ 
-        [
-            'category_name' => 'Footwear', 
-        ],
-        [
-            'category_name' => 'Clothing',
-        ]
-    ]);
+        DB::table('products')->truncate();
+        DB::table('products')->insert([ 
+            'product_name' => 'Nike Air Max', 
+            'id_category' => 1, 
+            'price' => 1200000, 
+            'stock' => 5, ]);
     }
 }
