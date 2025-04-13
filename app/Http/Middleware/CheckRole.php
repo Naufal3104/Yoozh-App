@@ -18,8 +18,13 @@ class CheckRole
         $user = Auth::user();
         $currentRoute = $request->route()->getName();
         
-        // Only redirect if not already on the correct route
-        if ($user->role === 1 && $currentRoute !== 'dashboard') {
+        // Define allowed routes for each role
+        $adminRoutes = ['dashboard', 'products.index', 'products.create', 
+                       'products.edit', 'products.destroy', 'category.index',
+                       'category.create', 'category.edit', 'category.destroy'];
+        
+        // Only redirect if trying to access unauthorized routes
+        if ($user->role === 1 && !in_array($currentRoute, $adminRoutes)) {
             return redirect()->route('dashboard');
         }
         
