@@ -9,25 +9,18 @@ use App\Http\Controllers\CategoryController;
 
 Route::resource('/', HomepageController::class);
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-});
-
-Route::get('/tables', function () {
-    return view('admin.tables');
-});
-
-Route::resource('/products', ProductController::class);
-
-Route::resource('/category', CategoryController::class);
-
-
-Route::get('/settings', function () {
-    return view('admin.app');
-});
-
 Route::get('/login', [AuthController::class, 'login'])->name('login');
-
 Route::post('/authenticate',[AuthController::class, 'authenticate']);
-
 Route::post('/logout',[AuthController::class, 'logout']);
+Route::get('/landing', function () {
+    return view('user.landing');
+})->name('landing');
+
+Route::middleware(['auth', \App\Http\Middleware\CheckRole::class])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('dashboard');
+    Route::resource('/products', ProductController::class)->except(['show']);
+    Route::resource('/category', CategoryController::class);
+
+});
