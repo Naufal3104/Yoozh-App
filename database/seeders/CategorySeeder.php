@@ -16,7 +16,9 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        // DB::table('categories')->truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::table('categories')->truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         DB::table('categories')->insert([ 
         [
             'category_name' => 'Footwear', 

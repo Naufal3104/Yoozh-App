@@ -15,11 +15,15 @@ class ProductSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('products')->truncate();
+        DB::table('products')->delete();
         DB::table('products')->insert([ 
-            'product_name' => 'Nike Air Max', 
-            'id_category' => 1, 
-            'price' => 1200000, 
-            'stock' => 5, ]);
+        [
+            'product_name' => 'Nike Air Max 270',
+            'id_category' => 1,
+            'product_image' => null,
+            'price' => 10000,
+            'stock' => 50,
+        ]
+    ]);
     }
 }
