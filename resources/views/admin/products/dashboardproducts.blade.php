@@ -16,6 +16,8 @@
                                 Items
                             </h3>
                         </div>
+                        <a class="bg-emerald-500 text-white active:bg-pink-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150" href="{{ route('products.create') }}">Add</a>
+
                     </div>
                 </div>
                 <div class="block w-full overflow-x-auto">
@@ -23,25 +25,25 @@
                     <table class="items-center w-full bg-transparent border-collapse">
                         <thead>
                             <tr>
+                                {{-- <th
+                                    class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100">
+                                    Product Image
+                                </th> --}}
                                 <th
                                     class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100">
-                                    Project
+                                    Product Name
                                 </th>
                                 <th
                                     class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100">
-                                    Budget
+                                    Category
                                 </th>
                                 <th
                                     class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100">
-                                    Status
+                                    Price
                                 </th>
                                 <th
                                     class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100">
-                                    Users
-                                </th>
-                                <th
-                                    class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100">
-                                    Completion
+                                    Stock
                                 </th>
                                 <th
                                     class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100">
@@ -49,73 +51,49 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($products as $product)
                             <tr>
-                                <th
-                                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-                                    <img src="../../assets/img/bootstrap.jpg"
-                                        class="h-12 w-12 bg-white rounded-full border" alt="..." />
-                                    <span class="ml-3 font-bold text-blueGray-600">
-                                        Argon Design System
+                                {{-- <td
+                                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                    <img src=""{{asset('/template/img/'.$product->product_image)}}"" alt="{{ $product->product_name }}" class="h-12 w-12 bg-white rounded-full border" />
+                                </td> --}}
+                                <td
+                                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
+                                    <span class="font-bold text-blueGray-600">
+                                        {{ $product->product_name }}
                                     </span>
-                                </th>
-                                <td
-                                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                    $2,500 USD
                                 </td>
                                 <td
                                     class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                    <i class="fas fa-circle text-orange-500 mr-2"></i>
-                                    pending
+{{ $product->categories->category_name ?? 'N/A' }}
                                 </td>
                                 <td
                                     class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                    <div class="flex">
-                                        <img src="../../assets/img/team-1-800x800.jpg" alt="..."
-                                            class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow" />
-                                        <img src="../../assets/img/team-2-800x800.jpg" alt="..."
-                                            class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4" />
-                                        <img src="../../assets/img/team-3-800x800.jpg" alt="..."
-                                            class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4" />
-                                        <img src="../../assets/img/team-4-470x470.png" alt="..."
-                                            class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4" />
+                                    ${{ number_format($product->price) }}
+                                </td>
+                                <td
+                                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                    {{ $product->stock }}
+                                </td>
+                                <td
+                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right">
+                                <a href="#pablo" class="text-blueGray-500 block py-1 px-3"
+                                    onclick="openDropdown(event,'table-light-{{ $product->id }}-dropdown')">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </a>
+                                <div class="hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
+                                    id="table-light-{{ $product->id }}-dropdown">
+                                    <a href="/products/{{ $product->id}}/edit"
+                                        class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">Update</a>
+                                        <form action="{{ route('products.destroy', $product->id) }}" method="POST" class="inline w-full" onsubmit="return confirm('Are you sure you want to delete this product?')">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="text-sm py-2 px-4 font-normal block w-full text-left whitespace-nowrap bg-transparent text-blueGray-700 hover:text-red-500">Delete</button>
+                                        </form>
                                     </div>
                                 </td>
-                                <td
-                                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                    <div class="flex items-center">
-                                        <span class="mr-2">60%</span>
-                                        <div class="relative w-full">
-                                            <div
-                                                class="overflow-hidden h-2 text-xs flex rounded bg-red-200">
-                                                <div style="width: 60%"
-                                                    class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-red-500">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td
-                                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right">
-                                    <a href="#pablo" class="text-blueGray-500 block py-1 px-3"
-                                        onclick="openDropdown(event,'table-light-1-dropdown')">
-                                        <i class="fas fa-ellipsis-v"></i>
-                                    </a>
-                                    <div class="hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
-                                        id="table-light-1-dropdown">
-                                        <a href="#pablo"
-                                            class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">Action</a><a
-                                            href="#pablo"
-                                            class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">Another
-                                            action</a><a href="#pablo"
-                                            class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">Something
-                                            else here</a>
-                                        <div class="h-0 my-2 border border-solid border-blueGray-100">
-                                        </div>
-                                        <a href="#pablo"
-                                            class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">Seprated
-                                            link</a>
-                                    </div>
-                                </td>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

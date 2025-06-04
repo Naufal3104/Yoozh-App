@@ -7,9 +7,8 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-use App\Models\Category;
 
-class CategorySeeder extends Seeder
+class ProductSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,14 +16,15 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        DB::table('categories')->truncate();
+        DB::table('products')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
-        DB::table('categories')->insert([ 
+        DB::table('products')->insert([ 
         [
-            'category_name' => 'Footwear', 
-        ],
-        [
-            'category_name' => 'Clothing',
+            'product_name' => 'Nike Air Max 270',
+            'id_category' => 1,
+            'product_image' => null,
+            'price' => 10000,
+            'stock' => 50,
         ]
     ]);
     }
