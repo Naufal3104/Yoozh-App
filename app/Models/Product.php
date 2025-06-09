@@ -4,17 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Models\Category;
 
 class Product extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'product_name',
+        'product_name', 
         'id_category',
         'product_image',
         'price',
         'stock'
     ];
+  
     protected $table = 'products';
     public function categories()
     {
@@ -27,5 +30,11 @@ class Product extends Model
     public function transactions()
     {
         return $this->hasManyThrough(Transaction::class, TransactionDetail::class, 'id_product', 'id_transaction');
+    }
+
+    protected $table = 'products';
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'id_category');
     }
 }

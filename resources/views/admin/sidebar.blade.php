@@ -101,7 +101,7 @@ class="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:fl
 
             <li class="items-center">
                 <a href="/category"
-                    class=" @if(Request::is('category')) text-pink-500 hover:text-pink-600 @else text-blueGray-700 hover:text-blueGray-500 @endif text-xs uppercase py-3 font-bold block ">
+                    class=" @if(Request::is('category')) text-orange-500 hover:text-orange-600 @else text-blueGray-700 hover:text-blueGray-500 @endif text-xs uppercase py-3 font-bold block ">
                     <i class="fas fa-swatchbook mr-2 text-sm opacity-75"></i>
                     Category
                 </a>
@@ -109,7 +109,7 @@ class="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:fl
 
             <li class="items-center">
                 <a href="/products"
-                    class=" @if(Request::is('products')) text-pink-500 hover:text-pink-600 @else text-blueGray-700 hover:text-blueGray-500 @endif text-xs uppercase py-3 font-bold block ">
+                    class=" @if(Request::is('products')) text-orange-500 hover:text-orange-600 @else text-blueGray-700 hover:text-blueGray-500 @endif text-xs uppercase py-3 font-bold block ">
                     <i class="fas fa-pump-soap mr-2 text-sm opacity-75"></i>
                     Products
                 </a>

@@ -24,7 +24,6 @@ Route::get('/settings', function () {
 });
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
-
 Route::post('/authenticate',[AuthController::class, 'authenticate']);
 
 Route::post('/logout',[AuthController::class, 'logout']);
