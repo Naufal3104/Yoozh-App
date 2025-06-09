@@ -1,6 +1,6 @@
 @extends('admin.app')
 @section('title','Dashboard')
-@section('content-title','Dashboard')
+@section('content-title','Admin')
 @section('content')
 <div class="relative bg-orange-500 md:pt-32 pb-32 pt-12">
     <div class="px-4 md:px-10 mx-auto w-full">
