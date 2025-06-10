@@ -5,13 +5,13 @@
         <div class="container mx-auto items-center flex flex-wrap">
             <div class="w-full md:w-8/12 lg:w-6/12 xl:w-6/12 px-4">
                 <div class="pt-32 sm:pt-0">
-                    <h2 class="font-semibold text-4xl text-slate-600">
+                    <h2 class="font-semibold text-4xl text-blueGray-600">
                         Notus Tailwind JS - A beautiful extension for Tailwind CSS.
                     </h2>
-                    <p class="mt-4 text-lg leading-relaxed text-slate-500">
+                    <p class="mt-4 text-lg leading-relaxed text-blueGray-500">
                         Notus Tailwind JS is Free and Open Source. It does not change any
                         of the CSS from
-                        <a href="https://tailwindcss.com/?ref=creativetim" class="text-slate-600" target="_blank">
+                        <a href="https://tailwindcss.com/?ref=creativetim" class="text-blueGray-600" target="_blank">
                             Tailwind CSS.
                         </a>
                         It features multiple HTML elements and it comes with dynamic
@@ -24,7 +24,7 @@
                             Get started
                         </a>
                         <a href="https://github.com/creativetimofficial/notus-js?ref=njs-index"
-                            class="github-star ml-1 text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-slate-700 active:bg-slate-600 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150"
+                            class="github-star ml-1 text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-700 active:bg-blueGray-600 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150"
                             target="_blank">
                             Github Star
                         </a>
@@ -37,11 +37,11 @@
             src="./assets/img/ill_header_3.png" alt="..." />
     </section>
 
-    <section class="mt-48 md:mt-40 pb-40 relative bg-slate-100">
-        <div class="-mt-20 top-0 bottom-auto left-0 right-0 w-full absolute h-20" style="transform: translateZ(0)">
+    <section class="mt-48 md:mt-40 pb-40 relative bg-blueGray-100">
+        <div class="-mt-20 top-0 bottom-auto left-0 right-0 w-full absolute h-20" style="transform: tranblueGrayZ(0)">
             <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
                 version="1.1" viewBox="0 0 2560 100" x="0" y="0">
-                <polygon class="text-slate-100 fill-current" points="2560 0 2560 100 0 100"></polygon>
+                <polygon class="text-blueGray-100 fill-current" points="2560 0 2560 100 0 100"></polygon>
             </svg>
         </div>
         <div class="container mx-auto px-4 pb-32 pt-48">
@@ -49,11 +49,11 @@
                 <div class="w-full md:w-5/12 ml-auto px-12 md:px-4">
                     <div class="md:pr-12">
                         <div
-                            class="text-slate-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
+                            class="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
                             <i class="fas fa-file-alt text-xl"></i>
                         </div>
                         <h3 class="text-3xl font-semibold">Complex Documentation</h3>
-                        <p class="mt-4 text-lg leading-relaxed text-slate-500">
+                        <p class="mt-4 text-lg leading-relaxed text-blueGray-500">
                             This extension comes a lot of fully coded examples that help you
                             get started faster. You can adjust the colors and also the
                             programming language. You can change the text and images and
@@ -64,12 +64,12 @@
                                 <div class="flex items-center">
                                     <div>
                                         <span
-                                            class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-slate-500 bg-slate-50 mr-3">
+                                            class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-blueGray-50 mr-3">
                                             <i class="fas fa-fingerprint"></i>
                                         </span>
                                     </div>
                                     <div>
-                                        <h4 class="text-slate-500">
+                                        <h4 class="text-blueGray-500">
                                             Built by Developers for Developers
                                         </h4>
                                     </div>
@@ -79,12 +79,12 @@
                                 <div class="flex items-center">
                                     <div>
                                         <span
-                                            class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-slate-500 bg-slate-50 mr-3">
+                                            class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-blueGray-50 mr-3">
                                             <i class="fab fa-html5"></i>
                                         </span>
                                     </div>
                                     <div>
-                                        <h4 class="text-slate-500">
+                                        <h4 class="text-blueGray-500">
                                             Carefully crafted code for Components
                                         </h4>
                                     </div>
@@ -94,12 +94,12 @@
                                 <div class="flex items-center">
                                     <div>
                                         <span
-                                            class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-slate-500 bg-slate-50 mr-3">
+                                            class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-blueGray-50 mr-3">
                                             <i class="far fa-paper-plane"></i>
                                         </span>
                                     </div>
                                     <div>
-                                        <h4 class="text-slate-500">
+                                        <h4 class="text-blueGray-500">
                                             Dynamic Javascript Components
                                         </h4>
                                     </div>
@@ -127,7 +127,7 @@
         </div>
     </section>
 
-    <section class="block relative z-1 bg-slate-600">
+    <section class="block relative z-1 bg-blueGray-600">
         <div class="container mx-auto">
             <div class="justify-center flex flex-wrap">
                 <div class="w-full lg:w-12/12 px-4 -mt-24">
@@ -191,14 +191,14 @@
     </section>
 
     <section class="py-20
-        bg-slate-600 overflow-hidden">
+        bg-blueGray-600 overflow-hidden">
     </section>
 
-    <section class="pb-16 bg-slate-200 relative pt-32">
-        <div class="-mt-20 top-0 bottom-auto left-0 right-0 w-full absolute h-20" style="transform: translateZ(0)">
+    <section class="pb-16 bg-blueGray-200 relative pt-32">
+        <div class="-mt-20 top-0 bottom-auto left-0 right-0 w-full absolute h-20" style="transform: tranblueGrayZ(0)">
             <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
                 version="1.1" viewBox="0 0 2560 100" x="0" y="0">
-                <polygon class="text-slate-200 fill-current" points="2560 0 2560 100 0 100"></polygon>
+                <polygon class="text-blueGray-200 fill-current" points="2560 0 2560 100 0 100"></polygon>
             </svg>
         </div>
     </section>

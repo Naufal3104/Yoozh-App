@@ -11,11 +11,10 @@
         href="./assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" />
     <link rel="stylesheet" href="./assets/styles/tailwind.css" />
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <title>@yield('title')</title>
 </head>
 
-<body class="text-slate-700 antialiased">
+<body class="text-blueGray-700 antialiased">
     @include('user.navbar')
     @yield('content')
     @include('user.footer')

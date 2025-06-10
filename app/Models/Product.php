@@ -32,7 +32,6 @@ class Product extends Model
         return $this->hasManyThrough(Transaction::class, TransactionDetail::class, 'id_product', 'id_transaction');
     }
 
-    protected $table = 'products';
     public function category()
     {
         return $this->belongsTo(Category::class, 'id_category');
