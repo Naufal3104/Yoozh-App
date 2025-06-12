@@ -31,3 +31,5 @@ Route::post('/logout',[AuthController::class, 'logout']);
 Route::get('/dashboard', [UserController::class, 'dashboard_index'])->name('dashboard_index');
 
 Route::get('/cart', [UserController::class, 'cart_index'])->name('cart_index');
+
+Route::post('/add_cart', [UserController::class, 'add_cart']);

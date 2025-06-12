@@ -5,9 +5,9 @@ module.exports = {
   purge: {
     enabled: true,
     content: ["./resources/**/*.blade.php",
-    "./resources/**/*.js",
-    "./resources/**/*.vue",
-    "./**/*.html", "./*.html"],
+              "./resources/**/*.js",
+              "./resources/**/*.vue",
+              "./**/*.html", "./*.html"],
     options: {
       safelist: [],
     },

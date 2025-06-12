@@ -56,7 +56,7 @@
                             </div>
                         @endif
 
-                        <form method="POST" action="{{ route('products.update', $product->id) }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('products.update', $product->product_id) }}" enctype="multipart/form-data">
                             @method('PUT')
                             @csrf
                             <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
@@ -76,12 +76,12 @@
                                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password">
                                             Product Category
                                         </label>
-                                        <select class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" id="id_category" name="id_category">
+                                        <select class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" id="category_id" name="category_id">
                                             @foreach ($categories as $item)
-                                                @if ($item->id == $product->id_category)
-                                                    <option value="{{ $item->id }}" selected>{{ $item->category_name }}</option>
+                                                @if ($item->category_id == $product->category_id)
+                                                    <option value="{{ $item->category_id }}" selected>{{ $item->category_name }}</option>
                                                 @else
-                                                    <option value="{{ $item->id }}">{{ $item->category_name }}</option>
+                                                    <option value="{{ $item->category_id }}">{{ $item->category_name }}</option>
                                                 @endif
                                             @endforeach
                                         </select>

@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('transactions', function (Blueprint $table) {
-            $table->id();
-            $table->bigInteger('id_user')->unsigned()->nullable();
-            $table->foreign('id_user')->references('id')->on('user')
+            $table->id('transaction_id');
+            $table->bigInteger('user_id')->unsigned()->nullable();
+            $table->foreign('user_id')->references('user_id')->on('user')
                 ->onUpdate('cascade')
                 ->onDelete('set null');
             $table->dateTime('date');

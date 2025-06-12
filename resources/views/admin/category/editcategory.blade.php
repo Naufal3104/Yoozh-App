@@ -60,7 +60,7 @@
                         </div>
                         @endif
 
-                        <form method="POST" action="{{ route('category.update', $category->id) }}">
+                        <form method="POST" action="{{ route('category.update', $category->category_id) }}">
                             @csrf
                             @method('PUT')
                             <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">

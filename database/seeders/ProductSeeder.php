@@ -19,7 +19,7 @@ class ProductSeeder extends Seeder
         DB::table('products')->insert([ 
         [
             'product_name' => 'Nike Air Max 270',
-            'id_category' => 1,
+            'category_id' => 1,
             'product_image' => null,
             'price' => 10000,
             'stock' => 50,

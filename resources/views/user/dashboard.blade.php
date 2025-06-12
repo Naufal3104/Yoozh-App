@@ -134,16 +134,10 @@
                     <div class="flex flex-wrap -mx-4">
 
                         @forelse ($products as $product)
-                            {{-- Setiap card dibungkus dengan x-data untuk state modalnya sendiri --}}
-                            <div x-data="{ open: false }" class="w-full md:w-6/12 lg:w-4/12 px-4">
-
-                                {{-- Tag <a> yang membungkus seluruh card sudah dihapus --}}
-                                <div class="block mb-8">
+                            <div class="w-full md:w-6/12 lg:w-4/12 px-4">
+                                <div x-data="{ open: false }" @click.away="open = false" class="relative block mb-8">
                                     <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col h-full">
-
-                                        {{-- AREA GAMBAR SEKARANG MENJADI PEMICU (TRIGGER) --}}
-                                        {{-- Ditambahkan @click untuk membuka modal dan cursor-pointer untuk mengubah kursor mouse --}}
-                                        <div @click.prevent="open = true" class="relative w-full cursor-pointer group"
+                                        <div @click="open = !open" class="relative w-full cursor-pointer group"
                                             style="padding-top: 100%;">
                                             @if ($product->product_image)
                                                 <img alt="{{ $product->product_name }}"
@@ -153,35 +147,47 @@
                                                 <div class="absolute top-0 left-0 w-full h-full bg-gray-200"></div>
                                             @endif
                                         </div>
-
-                                        {{-- AREA JUDUL (SEKARANG TIDAK BISA DIKLIK) --}}
                                         <div class="p-4 flex-grow">
                                             <h5 class="text-lg font-semibold text-gray-800 text-center">
                                                 {{ $product->product_name }}
                                             </h5>
                                         </div>
                                     </div>
-                                </div>
+                                    <div x-show="open" x-transition:enter="transition ease-out duration-200"
+                                        x-transition:enter-start="opacity-0 translate-y-1"
+                                        x-transition:enter-end="opacity-100 translate-y-0"
+                                        x-transition:leave="transition ease-in duration-150"
+                                        x-transition:leave-start="opacity-100 translate-y-0"
+                                        x-transition:leave-end="opacity-0 translate-y-1"
+                                        class="absolute z-10 w-full mt-2 bg-white rounded-lg shadow-xl"
+                                        style="display: none;">
+                                        <div class="p-4">
+                                            {{-- Form di dalam dropdown --}}
+                                            <form action="add_cart" method="POST" enctype="multipart/form-data">
+                                                @csrf
+                                                <input type="hidden" name="id_product" value="{{ $product->id }}">
+                                                <div class="mb-4">
+                                                    <label for="qty{{ $product->id }}"
+                                                        class="sr-only">Detail</label>
+                                                    <input type="number" name="qty"
+                                                        id="qty"
+                                                        placeholder="Jumlah Barang"
+                                                        class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                </div>
 
-                                {{-- =============================================== --}}
-                                {{-- STRUKTUR MODAL (POP-UP) - TIDAK ADA PERUBAHAN DI SINI --}}
-                                {{-- =============================================== --}}
-                                <div x-show="open" x-transition
-                                    class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75"
-                                    style="display: none;">
-
-                                    <div @click.away="open = false" @keydown.escape.window="open = false"
-                                        class="relative bg-white rounded-lg shadow-lg w-full max-w-2xl max-h-full overflow-auto">
-
-                                        {{-- ... (Isi modal tetap sama seperti sebelumnya) ... --}}
-
+                                                <button type="submit"
+                                                    class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-500 hover:bg-purple-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                                    Tambahkan ke Keranjang
+                                                </button>
+                                            </form>
+                                        </div>
                                     </div>
-                                </div>
 
+                                </div>
                             </div>
                         @empty
                             <div class="w-full text-center py-12">
-                                <p class="text-white text-lg">Saat ini belum ada produk yang tersedia.</p>
+                                <p class="text-gray-600 text-lg">Saat ini belum ada produk yang tersedia.</p>
                             </div>
                         @endforelse
                     </div>

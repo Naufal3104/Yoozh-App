@@ -16,7 +16,7 @@ return new class extends Migration
             AFTER INSERT ON carts
             FOR EACH ROW
             BEGIN
-                UPDATE products SET stock = stock - NEW.qty WHERE id = NEW.id_product;
+                UPDATE products SET stock = stock - NEW.qty WHERE product_id = NEW.product_id;
             END');
     }
 

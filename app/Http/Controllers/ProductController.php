@@ -37,7 +37,7 @@ class ProductController extends Controller
         // Validate the request data
         $request->validate([
             'product_name' => 'required|string|max:255',
-            'id_category' => 'required|exists:categories,id',
+            'category_id' => 'required|exists:categories,category_id',
             'product_image' => 'required|image',
             'price' => 'required|numeric',
             'stock' => 'required|integer',
@@ -56,7 +56,7 @@ class ProductController extends Controller
         // Create a new product
         Product::create([
             'product_name' => $request->product_name,
-            'id_category' => $request->id_category,
+            'category_id' => $request->category_id,
             'product_image' => $nama_file, // Update to use the correct filename
             'price' => $request->price,
             'stock' => $request->stock,
@@ -91,7 +91,7 @@ class ProductController extends Controller
         // Validate the request data
         $request->validate([
             'product_name' => 'required|string|max:255',
-            'id_category' => 'required|exists:categories,id',
+            'category_id' => 'required|exists:categories,category_id',
             'product_image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             'price' => 'required|numeric',
             'stock' => 'required|integer',
@@ -118,7 +118,7 @@ class ProductController extends Controller
         // Update product data
         $product->update([
             'product_name' => $request->product_name,
-            'id_category' => $request->id_category,
+            'category_id' => $request->category_id,
             'price' => $request->price,
             'stock' => $request->stock,
         ]);

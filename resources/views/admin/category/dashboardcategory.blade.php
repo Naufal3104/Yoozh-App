@@ -52,14 +52,14 @@
                                 <td
                                     class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right">
                                     <a href="#pablo" class="text-blueGray-500 block py-1 px-3"
-                                        onclick="openDropdown(event,'table-light-{{ $item->id }}-dropdown')">
+                                        onclick="openDropdown(event,'table-light-{{ $item->category_id }}-dropdown')">
                                         <i class="fas fa-ellipsis-v"></i>
                                     </a>
                                     <div class="hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
-                                        id="table-light-{{ $item->id }}-dropdown">
-                                        <a href="/category/{{ $item->id}}/edit"
+                                        id="table-light-{{ $item->category_id }}-dropdown">
+                                        <a href="/category/{{ $item->category_id}}/edit"
                                             class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">Update</a>
-                                            <form action="{{ route('category.destroy', $item->id) }}" method="POST" class="inline w-full">
+                                            <form action="{{ route('category.destroy', $item->category_id) }}" method="POST" class="inline w-full">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="text-sm py-2 px-4 font-normal block w-full text-left whitespace-nowrap bg-transparent text-blueGray-700 hover:text-red-500">Delete</button>

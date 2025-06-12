@@ -4,17 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Transaction;
+use App\Models\Product;
 
 class TransactionDetail extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'id_transaction',
-        'id_product',
+        'transaction_id',
+        'product_id',
         'qty',
         'subtotal',
     ];
 
+    protected $primaryKey = 'detail_id';
     protected $table = 'transaction_details';
 
     public function transactions()

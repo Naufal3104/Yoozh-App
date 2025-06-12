@@ -18,7 +18,7 @@ return new class extends Migration
             BEGIN
                 UPDATE products 
                 SET stock = (stock + OLD.qty) - NEW.qty
-                WHERE id = NEW.id_product;
+                WHERE product_id = NEW.product_id;
             END');
     }
 
