@@ -7,7 +7,7 @@
                     <a class="text-gray-500 text-xs font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
                     href="/cart">Cart</a>
                     <a class="text-gray-500 text-xs font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
-                    href="./index.html">Transaction</a>
+                    href="/transaction">Transaction</a>
             </div>
             <div class="lg:flex flex-grow items-center bg-white lg:bg-opacity-0 lg:shadow-none hidden"
                 id="example-collapse-navbar">
@@ -63,13 +63,29 @@
                             </a>
                         </div>
                     </li>
-                    <li class="flex items-center">
-                        <a href="/login"
-                            class="text-white bg-pink-500 active:bg-pink-600 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
-                            type="button"> Sign In
-                        </a>
-                    </li>
                 </ul>
+                <ul class="flex-col md:flex-row list-none items-center hidden md:flex">
+                        <a class="text-blueGray-500 block" href="#" onclick="openDropdown(event,'user-dropdown')">
+                            <div class="items-center flex">
+                                <span
+                                    class="w-12 h-12 text-sm text-white bg-blueGray-200 inline-flex items-center justify-center rounded-full"><img
+                                        alt="..." class="w-full rounded-full align-middle border-none shadow-lg"
+                                        src="../../assets/img/team-1-800x800.jpg" /></span>
+                            </div>
+                        </a>
+                        <div class="hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
+                            id="user-dropdown">
+                            <a href="/profile/{{ Auth::user()->user_id }}"
+                                class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">Profile</a>
+                            <div class="h-0 my-2 border border-solid border-blueGray-100"></div>
+                            <form action="/logout" method="POST">
+                                @csrf
+                                <input
+                                    class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-white text-blueGray-700"
+                                    type="submit" value="Logout">
+                            </form>
+                        </div>
+                    </ul>
             </div>
         </div>
     </nav>

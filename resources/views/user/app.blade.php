@@ -9,7 +9,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png" />
     <link rel="stylesheet"
         href="./assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" />
-    <link rel="stylesheet" href="./assets/styles/tailwind.css" />
+    <link rel="stylesheet" href="{{ asset('assets/styles/tailwind.css') }}" />
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
     <title>@yield('title')</title>

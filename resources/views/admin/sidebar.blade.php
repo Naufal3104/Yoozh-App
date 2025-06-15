@@ -93,7 +93,7 @@ class="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:fl
         <ul class="md:flex-col md:min-w-full flex flex-col list-none">
             <li class="items-center">
                 <a href="/admin"
-                    class=" @if(Request::is('admin')) text-pink-500 hover:text-pink-600 @else text-blueGray-700 hover:text-blueGray-500 @endif text-xs uppercase py-3 font-bold block ">
+                    class=" @if(Request::is('admin')) text-orange-500 hover:text-orange-600 @else text-blueGray-700 hover:text-blueGray-500 @endif text-xs uppercase py-3 font-bold block ">
                     <i class="fas fa-tv mr-2 text-sm opacity-75"></i>
                     Dashboard
                 </a>

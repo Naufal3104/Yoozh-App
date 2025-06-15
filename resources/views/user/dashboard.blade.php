@@ -165,21 +165,29 @@
                                             {{-- Form di dalam dropdown --}}
                                             <form action="add_cart" method="POST" enctype="multipart/form-data">
                                                 @csrf
-                                                <input type="hidden" name="id_product" value="{{ $product->id }}">
+                                                <input type="hidden" name="product_id" value="{{ $product->product_id }}">
                                                 <div class="mb-4">
-                                                    <label for="qty{{ $product->id }}"
-                                                        class="sr-only">Detail</label>
-                                                    <input type="number" name="qty"
-                                                        id="qty"
-                                                        placeholder="Jumlah Barang"
+                                                    <label for="qty{{ $product->id }}" class="sr-only">Detail</label>
+                                                    <input type="number" name="qty" id="qty"
+                                                        placeholder="Quantity" min="1" 
                                                         class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                                 </div>
 
                                                 <button type="submit"
                                                     class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-500 hover:bg-purple-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                                    Tambahkan ke Keranjang
+                                                    Add to Cart
                                                 </button>
                                             </form>
+                                            @if ($errors->any())
+                                                <div class="mb-4 p-4 bg-red-100 border border-red-400 text-red-500 rounded-lg"
+                                                    role="alert">
+                                                    <ul class="list-disc list-inside text-sm">
+                                                        @foreach ($errors->all() as $error)
+                                                            <li>{{ $error }}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            @endif
                                         </div>
                                     </div>
 

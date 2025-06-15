@@ -30,6 +30,6 @@ class Product extends Model
     }
     public function transactions()
     {
-        return $this->hasManyThrough(Transaction::class, TransactionDetail::class);
+        return $this->hasManyThrough(Transaction::class, TransactionDetail::class, 'product_id', 'transaction_id', 'product_id', 'transaction_id');
     }
 }

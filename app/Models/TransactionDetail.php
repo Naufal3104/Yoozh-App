@@ -22,11 +22,11 @@ class TransactionDetail extends Model
 
     public function transactions()
     {
-        return $this->belongsTo(Transaction::class);
+        return $this->belongsTo(Transaction::class, 'transaction_id', 'transaction_id');
     }
 
     public function products()
     {
-        return $this->belongsTo(Item::class);
+        return $this->belongsTo(Product::class, 'product_id', 'product_id');
     }
 }

@@ -37,3 +37,11 @@ Route::post('/add_cart', [UserController::class, 'add_cart']);
 Route::put('/update_cart/{id}', [UserController::class, 'update_cart']);
 
 Route::delete('/delete_cart/{id}', [UserController::class, 'delete_cart']);
+
+Route::post('/checkout', [UserController::class, 'checkout']);
+
+Route::get('/transaction', [UserController::class, 'transaksi_index']);
+
+Route::get('/receipt/{id}', [UserController::class, 'receipt']);
+
+Route::get('/profile/{id}', [UserController::class, 'profile']);
