@@ -33,3 +33,7 @@ Route::get('/dashboard', [UserController::class, 'dashboard_index'])->name('dash
 Route::get('/cart', [UserController::class, 'cart_index'])->name('cart_index');
 
 Route::post('/add_cart', [UserController::class, 'add_cart']);
+
+Route::put('/update_cart/{id}', [UserController::class, 'update_cart']);
+
+Route::delete('/delete_cart/{id}', [UserController::class, 'delete_cart']);

@@ -94,13 +94,13 @@
                                           htmlFor="grid-password">
                                           Product Category
                                       </label>
-                                      <select class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" id="id_category" name="id_category">
+                                      <select class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" id="category_id" name="category_id">
                                           @foreach ($categories as $item)
-                                              @if ($item->id_category == $item->id)
-                                                  <option value ="{{ $item->id }}" selected>{{ $item->category_name }}</option>
+                                              @if ($item->category_id == $item->category_id)
+                                                  <option value ="{{ $item->category_id }}" selected>{{ $item->category_name }}</option>
                                                   </option>
                                               @else
-                                                  <option value="{{ $item->id }}">{{ $item->category_name }}</option>
+                                                  <option value="{{ $item->category_id }}">{{ $item->category_name }}</option>
                                               @endif
                                           @endforeach
                                       </select>

@@ -33,4 +33,27 @@ class UserController extends Controller
 
         return redirect()->back()->with('success', 'Cart created successfully.');
     }
+
+    public function update_cart(Request $request, $id)
+    {
+        // dd($request->all());
+        $request->validate([
+            'cart_id' => 'required',
+            'product_id' => 'required',
+            'qty' => 'required'
+        ]);
+
+        $cart=Cart::findOrFail($id);
+            $cart->cart_id = $request->cart_id;
+            $cart->product_id = $request->product_id;
+            $cart->qty = $request -> qty;                
+            $cart->save();
+        return redirect()->back()->with('success', 'Cart updated successfully.');
+    }
+
+    public function delete_cart($id)
+    {
+        $cart = Cart::findOrFail($id)->delete();
+        return redirect()->back()->with('success', 'Cart deleted successfully.');
+    }
 }

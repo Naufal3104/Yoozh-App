@@ -29,6 +29,7 @@ class User extends Authenticatable {
       /** * Get the attributes that should be cast. 
        * * * @return array<string, string> */ 
       protected $table = 'user';
+      protected $primaryKey = 'user_id';
       public function transactions()
       {
         return $this->hasMany(Transaction::class);
